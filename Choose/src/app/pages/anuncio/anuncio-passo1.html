@@ -1,0 +1,79 @@
+<app-header></app-header>
+
+<main class="main">
+  <div class="titulo-pagina">
+    <h2>Crie seu anuncio</h2>
+    <br />
+  </div>
+
+  <div class="form-container">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="grid-form">
+      <div class="campo">
+        <label>Qual veículo você deseja anunciar?</label>
+        <select formControlName="tipoVeiculo">
+          <option value="">Selecione</option>
+          <option value="Carro">Carro</option>
+          <option value="Moto">Moto</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label>Qual o modelo? <span class="required">*</span></label>
+        <input type="text" formControlName="modelo" placeholder="Informar modelo" />
+      </div>
+
+      <div class="campo">
+        <label>Qual o ano do veículo? <span class="required">*</span></label>
+        <input type="text" formControlName="ano" placeholder="Informar ano" />
+      </div>
+
+      <div class="campo">
+        <label>Qual a versão do veículo? <span class="required">*</span></label>
+        <input type="text" formControlName="versao" placeholder="Informar versão" />
+      </div>
+
+      <div class="campo">
+        <label>Câmbio</label>
+        <select formControlName="cambio">
+          <option value=""></option>
+          <option value="Automático">Automático</option>
+          <option value="Manual">Manual</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label>Potência do motor</label>
+        <select formControlName="potencia">
+          <option value=""></option>
+          <option value="1.0">1.0</option>
+          <option value="1.6">1.6</option>
+          <option value="2.0">2.0</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label>Quantidade de portas</label>
+        <select formControlName="portas">
+          <option value=""></option>
+          <option value="2">2</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label>Tipo de veículo</label>
+        <select formControlName="tipoVeiculoDetalhe">
+          <option value=""></option>
+          <option value="Sedan">Sedan</option>
+          <option value="Hatch">Hatch</option>
+        </select>
+      </div>
+
+      <div class="area-botao">
+        <button type="submit" class="btn-continuar">Continuar</button>
+      </div>
+    </form>
+  </div>
+</main>
+
+<app-footer></app-footer>

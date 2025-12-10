@@ -1,0 +1,15 @@
+<app-header></app-header>
+
+<main>
+  <form class="form-login" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <img src="assets/perfil-de-usuario.png" alt="Perfil" />
+    <br />
+    <input type="text" formControlName="email" placeholder="E-mail" />
+    <br />
+    <input type="password" formControlName="senha" placeholder="Senha" />
+    <br />
+    <button type="submit"><b>Login</b></button>
+  </form>
+</main>
+
+<app-footer></app-footer>

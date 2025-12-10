@@ -1,0 +1,74 @@
+<app-header></app-header>
+
+<main class="main">
+  <div class="titulo-pagina">
+    <h2>Crie seu anuncio</h2>
+    <br />
+  </div>
+  <div class="container-passo2">
+    <div class="selecao-cards">
+      <div class="card-upload" (click)="fileInput.click()">
+        <input
+          type="file"
+          #fileInput
+          multiple
+          accept="image/*"
+          (change)="onFileSelected($event)"
+          style="display: none"
+        />
+        <div class="icon-area">
+          <svg
+            width="60"
+            height="60"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#000"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"
+            ></path>
+            <circle cx="12" cy="13" r="4"></circle>
+          </svg>
+        </div>
+        <p>Arraste suas fotos para cá.</p>
+        <small>Adicione até 10 fotos do seu automóvel.</small>
+      </div>
+
+      <div class="card-placa">
+        <div class="icon-area">
+          <svg
+            width="60"
+            height="60"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#000"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="2" y="5" width="20" height="14" rx="2" ry="2"></rect>
+            <line x1="2" y1="10" x2="22" y2="10"></line>
+          </svg>
+        </div>
+        <label for="placa-input">Informe a placa do seu veículo:</label>
+        <input
+          type="text"
+          id="placa-input"
+          [formControl]="placa"
+          placeholder="_ _ _ - _ _ _ _"
+          maxlength="8"
+        />
+      </div>
+    </div>
+
+    <div class="rodape-botoes">
+      <button class="btn-voltar" (click)="onVoltar()">Voltar</button>
+      <button class="btn-continuar" (click)="onContinuar()">Continuar</button>
+    </div>
+  </div>
+</main>
+
+<app-footer></app-footer>

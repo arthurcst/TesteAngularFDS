@@ -1,0 +1,38 @@
+<app-header></app-header>
+
+<main>
+  <section class="most-searched">
+    <h2>Resultados</h2>
+
+    @if (loading()) {
+      <div class="loading">Buscando carros...</div>
+    } @else if (error()) {
+      <div class="error">{{ error() }}</div>
+    }
+
+    <div class="card-container">
+      @for (veiculo of veiculos(); track veiculo.id) {
+        <a [routerLink]="['/carro', veiculo.carro?.modelo || veiculo.id]">
+        <article class="card">
+          <img [src]="veiculo.imagem" [alt]="veiculo.nome" />
+          <div class="card-content">
+            <h3>{{ veiculo.nome }}</h3>
+            <p class="price">{{ veiculo.preco }}</p>
+            <div class="tags">
+              @for (tag of veiculo.tags; track tag) {
+              <span [class]="'tag ' + getTagClass(tag)">{{ tag }}</span>
+              }
+            </div>
+            <div class="card-footer">
+              <span class="date">{{ veiculo.data }}</span>
+              <span class="location">{{ veiculo.localizacao }}</span>
+            </div>
+          </div>
+        </article>
+      </a>
+      }
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>

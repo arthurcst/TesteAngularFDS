@@ -1,0 +1,34 @@
+<app-header></app-header>
+
+<main class="main">
+  <div class="titulo-pagina">
+    <h2>Crie seu anuncio</h2>
+    <br />
+  </div>
+  <div class="container-passo4">
+    <div class="painel-final">
+      <div class="conteudo-central">
+        <div class="bloco-fipe">
+          <h2>De acordo com a tabela FIPE:</h2>
+          <div class="box-valor-fipe">{{ precoFipe() }}</div>
+        </div>
+        <div class="bloco-input-valor">
+          <label for="valor">Valor</label>
+          <input
+            type="text"
+            id="valor"
+            [formControl]="valor"
+            class="input-valor"
+            placeholder="R$ 0,00"
+          />
+        </div>
+      </div>
+      <div class="rodape-botoes">
+        <button class="btn-voltar" (click)="onVoltar()">Voltar</button>
+        <button class="btn-finalizar" (click)="onFinalizar()">Finalizar</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<app-footer></app-footer>

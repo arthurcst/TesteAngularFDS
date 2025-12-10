@@ -1,0 +1,73 @@
+.main {
+  max-width: 1400px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.titulo-pagina h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.form-container {
+  background-color: #f2f2f2;
+  padding: 40px;
+  border-radius: 8px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.grid-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 40px;
+  row-gap: 20px;
+}
+
+.campo label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #000;
+  font-size: 15px;
+}
+
+.required {
+  color: red;
+}
+
+.campo input,
+.campo select {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  background-color: white;
+  font-size: 14px;
+  box-sizing: border-box;
+  color: #555;
+  height: 42px;
+}
+
+.area-botao {
+  grid-column: span 2;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.btn-continuar {
+  background-color: #004aad;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-continuar:hover {
+  background-color: #003380;
+}

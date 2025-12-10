@@ -1,0 +1,58 @@
+<app-header></app-header>
+
+<div class="layout-anuncio">
+  <main class="conteudo-principal">
+    @if (loading()) {
+      <div class="loading">Carregando informações do carro...</div>
+    } @else if (error()) {
+      <div class="error">{{ error() }}</div>
+    }
+
+    <div class="galeria">
+      <img [src]="imagens()[0]" class="destaque" [alt]="veiculo().nome" />
+      @for (img of imagens().slice(1); track $index) {
+        <img [src]="img" [alt]="veiculo().nome + ' - Foto ' + ($index + 2)" />
+      }
+    </div>
+
+    <div class="info-carro">
+      <h1>{{ veiculo().nome }}</h1>
+      <div class="tags">
+        @for (tag of veiculo().tags; track tag) {
+          <span [class]="'tag ' + getTagClass(tag)">{{ tag }}</span>
+        }
+      </div>
+      <p class="descricao">{{ veiculo().descricao }}</p>
+    </div>
+  </main>
+
+  <aside class="sidebar-direita">
+    <div class="card card-preco">
+      <span class="data-local">{{ veiculo().data }} - {{ veiculo().localizacao }}</span>
+      <h2 class="preco">{{ veiculo().preco }}</h2>
+      <p class="telefone">{{ veiculo().telefone }} ✅</p>
+      <br />
+      <button class="btn-chat">Chat com o vendedor</button>
+    </div>
+
+    <div class="card card-fipe">
+      <h3>Referência de preço</h3>
+      <div class="barras-preco">
+        <div class="barra-azul"></div>
+        <div class="barra-cinza"></div>
+      </div>
+      <div class="fipe-info">
+        <div>
+          <small>Média de preço</small>
+          <strong>{{ veiculo().precoMedio }}</strong>
+        </div>
+        <div>
+          <small>Tabela FIPE</small>
+          <strong>{{ veiculo().precoFipe }}</strong>
+        </div>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<app-footer></app-footer>

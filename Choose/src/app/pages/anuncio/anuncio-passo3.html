@@ -1,0 +1,61 @@
+<app-header></app-header>
+
+<main class="main">
+  <div class="titulo-pagina">
+    <h2>Crie seu anuncio</h2>
+    <br />
+  </div>
+  <div class="container-passo3">
+    <div class="painel-cinza">
+      <form [formGroup]="form" class="grid-conteudo">
+        <div class="coluna-esquerda">
+          <div class="campo">
+            <label>Quilometragem (km)</label>
+            <input type="text" formControlName="quilometragem" placeholder="Ex.: 50.000 km" />
+          </div>
+
+          <div class="campo">
+            <label>Qual a cor?</label>
+            <input type="text" formControlName="cor" class="input-borda-fina" />
+          </div>
+
+          <div class="campo">
+            <label>Informações adicionais</label>
+            <input
+              type="text"
+              formControlName="informacoesAdicionais"
+              placeholder="Ex.: Conexão USB"
+            />
+          </div>
+
+          <div class="area-tags">
+            @for (tag of tagsDisponiveis; track tag) {
+            <span
+              [class]="'tag ' + (isTagSelecionada(tag) ? 'tag-selecionada' : '')"
+              (click)="toggleTag(tag)"
+            >
+              {{ tag }}
+            </span>
+            }
+          </div>
+        </div>
+
+        <div class="coluna-direita">
+          <label>Insira uma descrição para o anúncio</label>
+          <textarea
+            formControlName="descricao"
+            placeholder="Detalhe as características do veículo para atrair mais compradores"
+          >
+          </textarea>
+        </div>
+      </form>
+
+      <div class="rodape-botoes">
+        <button class="btn-voltar" (click)="onVoltar()">Voltar</button>
+        <button class="btn-continuar" (click)="onContinuar()">Continuar</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<app-footer></app-footer>

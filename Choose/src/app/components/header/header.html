@@ -1,0 +1,51 @@
+<header class="main-header">
+  <nav class="top-nav">
+    <div class="logo">
+      <a routerLink="/"><img src="assets/logo.png" alt="Logo Choose" /></a>
+    </div>
+
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar" #searchInput />
+      <button aria-label="Buscar" (click)="onSearch(searchInput.value)">
+        <span class="material-symbols-outlined">search</span>
+      </button>
+    </div>
+
+    <div class="user-actions">
+      @if (!isLoggedIn) {
+      <a routerLink="/login" class="login-btn">Entrar</a>
+      } @else {
+      <a href="" class="loged-btn"
+        >Olá, Olivia!
+        <span class="material-symbols-outlined">menu</span>
+      </a>
+      }
+      <a routerLink="/anuncio/passo-1" class="announce-btn">
+        <span class="material-symbols-outlined">add</span>
+        Anunciar grátis
+      </a>
+    </div>
+  </nav>
+
+  <nav class="category-nav">
+    <a href="#" class="category-btn">
+      <span class="material-symbols-outlined">menu</span>
+      Categorias
+    </a>
+
+    <div class="category-links">
+      <a routerLink="/busca" [queryParams]="{ categoria: 'Carros' }">Carros</a>
+      <a routerLink="/busca" [queryParams]="{ categoria: 'Motos' }">Motos</a>
+      <a routerLink="/busca" [queryParams]="{ categoria: 'Tratores' }">Tratores</a>
+      <a routerLink="/busca" [queryParams]="{ categoria: 'Caminhões' }">Caminhões</a>
+      <a routerLink="/busca" [queryParams]="{ categoria: 'Helicópteros' }">Helicópteros</a>
+      <a routerLink="/busca" [queryParams]="{ categoria: 'Ônibus' }">Ônibus</a>
+      <a routerLink="/busca" [queryParams]="{ categoria: 'Bicicletas' }">Bicicletas</a>
+      <a routerLink="/busca" [queryParams]="{ categoria: 'Carroças' }">Carroças</a>
+    </div>
+
+    <a href="#" class="notification-btn" aria-label="Notificações">
+      <span class="material-symbols-outlined">notifications</span>
+    </a>
+  </nav>
+</header>
