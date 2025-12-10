@@ -148,6 +148,7 @@ export class Busca {
     if (carro.quantidadeDePortas >= 4) tags.push('Espaçoso');
     if (carro.preco < 50000) tags.push('Custo-benefício');
     if (carro.preco > 80000) tags.push('Premium');
+    if (carro.potenciaMotor) tags.push(`Potência ${carro.potenciaMotor}`);
     return tags;
   }
 

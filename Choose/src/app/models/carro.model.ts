@@ -8,7 +8,7 @@ export interface Carro {
   preco: number;
   cambio: string;
   quantidadeDePortas: number;
-  potenciaMotor: string;
+  potenciaMotor: string | null;
 }
 
 export interface ComparacaoPreco {

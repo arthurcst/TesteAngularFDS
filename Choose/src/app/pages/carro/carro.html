@@ -3,15 +3,15 @@
 <div class="layout-anuncio">
   <main class="conteudo-principal">
     @if (loading()) {
-      <div class="loading">Carregando informações do carro...</div>
+    <div class="loading">Carregando informações do carro...</div>
     } @else if (error()) {
-      <div class="error">{{ error() }}</div>
+    <div class="error">{{ error() }}</div>
     }
 
     <div class="galeria">
       <img [src]="imagens()[0]" class="destaque" [alt]="veiculo().nome" />
       @for (img of imagens().slice(1); track $index) {
-        <img [src]="img" [alt]="veiculo().nome + ' - Foto ' + ($index + 2)" />
+      <img [src]="img" [alt]="veiculo().nome + ' - Foto ' + ($index + 2)" />
       }
     </div>
 
@@ -19,7 +19,7 @@
       <h1>{{ veiculo().nome }}</h1>
       <div class="tags">
         @for (tag of veiculo().tags; track tag) {
-          <span [class]="'tag ' + getTagClass(tag)">{{ tag }}</span>
+        <span [class]="'tag ' + getTagClass(tag)">{{ tag }}</span>
         }
       </div>
       <p class="descricao">{{ veiculo().descricao }}</p>

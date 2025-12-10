@@ -77,7 +77,7 @@ export class AnuncioPasso4 {
         preco: valorPreco,
         cambio: dados().cambio || '',
         quantidadeDePortas: dados().quantidadeDePortas || 0,
-        potenciaMotor: dados().potenciaMotor || '',
+        potenciaMotor: dados().potenciaMotor || null,
       };
 
       this.carroService

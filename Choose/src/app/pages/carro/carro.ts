@@ -44,9 +44,9 @@ export class CarroComponent {
       nome: `${c.marca} ${c.modelo} - ${c.cor}`,
       imagem: this.getImagemPorModelo(c.modelo),
       tags: this.getTagsPorCarro(c),
-      descricao: `Ano ${c.ano}, ${c.versao}, ${c.cambio}, ${c.quantidadeDePortas} portas, ${
-        c.potenciaMotor
-      } de potência. Quilometragem: ${c.quilometragem.toLocaleString('pt-BR')} km.`,
+      descricao: `Ano ${c.ano}, ${c.versao}, ${c.cambio}, ${c.quantidadeDePortas} portas${
+        c.potenciaMotor ? `, ${c.potenciaMotor} de potência` : ''
+      }. Quilometragem: ${c.quilometragem.toLocaleString('pt-BR')} km.`,
       preco: `R$ ${c.preco.toLocaleString('pt-BR', {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2,
@@ -96,10 +96,15 @@ export class CarroComponent {
       )
       .subscribe({
         next: (carro) => {
-          this.carro.set(carro);
+          if (carro) {
+            this.carro.set(carro);
+          } else {
+            this.error.set('Carro não encontrado.');
+          }
           this.loading.set(false);
         },
-        error: () => {
+        error: (err: Error) => {
+          this.error.set(err?.message || 'Erro ao carregar informações do carro.');
           this.loading.set(false);
         },
       });
@@ -109,7 +114,7 @@ export class CarroComponent {
     this.carroService
       .compararPreco(modelo)
       .pipe(
-        catchError((err) => {
+        catchError((err: Error) => {
           console.error('Erro ao comparar preço:', err);
           return of('');
         })
@@ -117,6 +122,9 @@ export class CarroComponent {
       .subscribe({
         next: (resultado) => {
           this.comparacaoPreco.set(resultado);
+        },
+        error: (err: Error) => {
+          console.error('Erro ao comparar preço:', err);
         },
       });
   }
